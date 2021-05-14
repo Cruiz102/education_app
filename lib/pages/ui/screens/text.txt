@@ -1,0 +1,8 @@
+Welcome to [Mathigon](https://mathigon.org), an award-winning mathematics education platform for
+students aged 12 to 18. Part textbook and part virtual personal tutor, it uses cutting-edge
+technology and an innovative new curriculum to make learning mathematics more fun and more
+interactive and engaging than ever before. [Learn more…](https://www.youtube.com/watch?v=vwyIZsi0b98)
+
+This repository contains the source code and assets for all our courses.
+
+# Setu
