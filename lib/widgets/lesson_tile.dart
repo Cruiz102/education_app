@@ -22,26 +22,25 @@ class _LessonTileState extends State<LessonTile> {
           ),
           Material(
               borderRadius: BorderRadius.circular(20),
-              child: InkWell(
-                  child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: Colors.transparent,
-                      ),
-                      height: 150,
-                      width: 240,
-                      child: ListTile(
-                        leading: Icon(Icons.ac_unit),
-                        title: Text("Que qioero fek"),
-                        subtitle: Text("Lesson 2.1"),
-                        trailing: Container(
-                            color: Colors.green,
-                            margin: EdgeInsets.only(top: 100),
-                            child: Icon(
-                              Icons.check,
-                            )),
-                        onTap: () {},
-                      ))))
+              child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Colors.transparent,
+                  ),
+                  height: 150,
+                  width: 240,
+                  child: ListTile(
+                    leading: Icon(Icons.ac_unit),
+                    title: Text("Que qioero fek"),
+                    subtitle: Text("Lesson 2.1"),
+                    trailing: Container(
+                        color: Colors.green,
+                        margin: EdgeInsets.only(top: 100),
+                        child: Icon(
+                          Icons.check,
+                        )),
+                    onTap: () {},
+                  )))
         ]));
   }
 }
