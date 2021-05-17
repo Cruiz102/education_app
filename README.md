@@ -1,6 +1,6 @@
 # education_app
 
-A new Flutter project.
+This is a flutter project. Is a app for education purpose. His name Edu-App
 
 ## Getting Started
 

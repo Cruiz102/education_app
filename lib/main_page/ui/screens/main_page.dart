@@ -1,4 +1,5 @@
-import 'package:education_app/main_page/ui/widgets/Courses/courses_page.dart';
+
+import 'package:education_app/courses/ui/screens/courses_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -17,25 +18,16 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
+      drawer: Drawer(
+        child: Text("Hola"),
+      ),
       body: CoursePage(),
       appBar: AppBar(
-        title: Row(
-          children: [
-            IconButton(
-              color: Colors.black,
-              icon: Icon(Icons.menu),
-              onPressed: () => {},
-            ),
-            Container(
-                margin: EdgeInsets.only(left: 10.0),
-                height: 50.0,
-                child: Center(
-                    child: Text(
-                  "Edu-App",
-                  style: TextStyle(
-                      color: Colors.black, fontWeight: FontWeight.bold),
-                )))
-          ],
+        title: Text(
+          "Edu-App",
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+
         ),
         backgroundColor: Colors.white,
         systemOverlayStyle:
