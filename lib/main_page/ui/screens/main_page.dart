@@ -1,3 +1,4 @@
+
 import 'package:education_app/courses/ui/screens/courses_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -17,6 +18,7 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       drawer: Drawer(
         child: Text("Hola"),
       ),
@@ -25,6 +27,7 @@ class _MainPageState extends State<MainPage> {
         title: Text(
           "Edu-App",
           style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+
         ),
         backgroundColor: Colors.white,
         systemOverlayStyle:
