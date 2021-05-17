@@ -35,11 +35,11 @@ class _CourseCardState extends State<CourseCard> {
                         Icons.ac_unit,
                         size: 100,
                       ))),
-                  Spacer(),
                   Text(
-                    "CesarCourse",
+                    "Course Introduction",
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
+                  Spacer(),
                   Container(
                     margin: EdgeInsets.all(10),
                     height: 3,

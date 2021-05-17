@@ -9,13 +9,13 @@ class CourseHeader extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
-            margin: EdgeInsets.only(top: 20, bottom: 10),
+            margin: EdgeInsets.only(top: 20, bottom: 10, left: 10),
             child: Text(
               "Popular",
               style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
             )),
         Container(
-          margin: EdgeInsets.only(bottom: 15),
+          margin: EdgeInsets.only(bottom: 15, left: 10),
           child: Text(
             "Courses you've worked recently",
             style: TextStyle(fontSize: 15, fontStyle: FontStyle.italic),
