@@ -1,3 +1,5 @@
+import 'package:education_app/courses/ui/widgets/lesson_page_slider.dart';
+import 'package:education_app/pages/ui/screens/example.dart';
 import 'package:flutter/material.dart';
 
 class LessonTile extends StatefulWidget {
@@ -18,10 +20,35 @@ class _LessonTileState extends State<LessonTile> {
                 BoxDecoration(shape: BoxShape.circle, color: Colors.red),
           ),
           SizedBox(
-            width: 120,
+            width: MediaQuery.of(context).size.width / 4,
           ),
-          Material(
-              borderRadius: BorderRadius.circular(20),
+          ElevatedButton(
+              style: ButtonStyle(
+                elevation: MaterialStateProperty.all<double>(0),
+                backgroundColor:
+                    MaterialStateProperty.all<Color>(Colors.grey.shade100),
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => (LessonPageSlider(
+                            pageList: [
+                              Something(),
+                              Something(),
+                              Something(),
+                              Something(),
+                              Something(),
+                              Something(),
+                              Something(),
+                              Something(),
+                              Something(),
+                            ],
+                          )),
+                      maintainState: true,
+                      fullscreenDialog: true),
+                );
+              },
               child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
@@ -39,7 +66,6 @@ class _LessonTileState extends State<LessonTile> {
                         child: Icon(
                           Icons.check,
                         )),
-                    onTap: () {},
                   )))
         ]));
   }
