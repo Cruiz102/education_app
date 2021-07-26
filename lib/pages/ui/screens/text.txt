@@ -5,4 +5,4 @@ interactive and engaging than ever before. [Learn more…](https://www.youtube.c
 
 This repository contains the source code and assets for all our courses.
 
-# Setu
+# Setup

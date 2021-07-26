@@ -49,6 +49,8 @@ class Something2 extends StatefulWidget {
   _Something2State createState() => _Something2State();
 }
 
+enum SingingCharacter { lafayette, jefferson }
+
 class _Something2State extends State<Something2> {
   String data = "";
   fetchFileData() async {
@@ -66,6 +68,7 @@ class _Something2State extends State<Something2> {
     super.initState();
   }
 
+  int selectedpsotion = 1;
   @override
   Widget build(BuildContext context) {
     return InformationPage(
@@ -75,7 +78,11 @@ class _Something2State extends State<Something2> {
           data: data,
           selectable: true,
         ),
-        MultipleSelect(),
+        MultipleSelect(
+          numbers: 3,
+          correctAnswer: 1,
+          description: [Text("kb"), Text("sfg"), Text("Teamo")],
+        )
       ],
     );
   }
