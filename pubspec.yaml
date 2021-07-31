@@ -47,7 +47,7 @@ flutter:
     - lib/pages/repository/jiraffe.jpeg
     - lib/pages/repository/hola.jpeg
     - lib/pages/ui/screens/
-    - lib/widgets/interactives/web_widgets/
+  
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
