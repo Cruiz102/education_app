@@ -79,7 +79,6 @@ class _Something2State extends State<Something2> {
           selectable: true,
         ),
         MultipleSelect(
-          numbers: 3,
           correctAnswer: 1,
           description: [Text("kb"), Text("sfg"), Text("Teamo")],
         )

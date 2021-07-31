@@ -2,10 +2,9 @@ import 'package:education_app/widgets/interactives/explanation_page.dart';
 import 'package:flutter/material.dart';
 
 class MultipleSelect extends StatefulWidget {
-  final int numbers;
   final int correctAnswer;
   final List<Widget> description;
-  MultipleSelect({this.numbers, this.correctAnswer, this.description});
+  MultipleSelect({this.correctAnswer, this.description});
 
   @override
   _MultipleSelectState createState() => _MultipleSelectState();
@@ -14,21 +13,22 @@ class MultipleSelect extends StatefulWidget {
 class _MultipleSelectState extends State<MultipleSelect> {
   int valueofthemultipleSelectwidget = 0;
 
+// This method changed the value of the answer of the radiobuttons
   void changeAnswer(value) {
     setState(() {
-      print(value);
       valueofthemultipleSelectwidget = value;
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    // This is the function that set the radio Button possible answers and put a Submit Button
     List<Widget> answers(int hello) {
       List<Widget> list = [];
 
       list.add(SizedBox(height: 25));
 
-      for (int i = 0; i < widget.numbers; i++) {
+      for (int i = 0; i < widget.description.length; i++) {
         Widget radio = Container(
             width: MediaQuery.of(context).size.width / 1.101,
             decoration: BoxDecoration(
@@ -45,14 +45,17 @@ class _MultipleSelectState extends State<MultipleSelect> {
       list.add(SizedBox(height: 5));
 
       list.add(ElevatedButton(
-          onPressed: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => (ExplanationPage()),
-                    maintainState: true,
-                    fullscreenDialog: true));
-          },
+          onPressed: () => {
+                showModalBottomSheet(
+                    isScrollControlled: true,
+                    backgroundColor: Colors.transparent,
+                    context: context,
+                    builder: (context) => ExplanationPage(
+                          correctAnswer: widget.correctAnswer,
+                          givenValue: valueofthemultipleSelectwidget,
+                          explanationInfo: Text("hola"),
+                        ))
+              },
           child: Container(
             child: Center(child: Text("Submit")),
             width: MediaQuery.of(context).size.width / 1.15,
@@ -60,6 +63,7 @@ class _MultipleSelectState extends State<MultipleSelect> {
       return list;
     }
 
-    return Column(children: answers(widget.numbers));
+// In here we return the function that set us all the ui
+    return Column(children: answers(widget.description.length));
   }
 }

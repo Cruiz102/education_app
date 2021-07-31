@@ -1,6 +1,5 @@
 import 'package:education_app/account/ui/screens/account_page.dart';
 import 'package:education_app/courses/ui/screens/courses_page.dart';
-import 'package:education_app/widgets/interactives/web_widgets/web.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -18,7 +17,7 @@ class MainPage extends StatefulWidget {
       icon: Icon(Icons.collections_bookmark_rounded), label: "Courses");
 
   final List<Widget> _widgetOptions = <Widget>[
-    WebWidget(),
+    AccountPage(),
     CoursePage(),
     AccountPage()
   ];

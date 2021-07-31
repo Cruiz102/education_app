@@ -20,7 +20,7 @@ class _LessonTileState extends State<LessonTile> {
                 BoxDecoration(shape: BoxShape.circle, color: Colors.red),
           ),
           SizedBox(
-            width: MediaQuery.of(context).size.width / 4,
+            width: MediaQuery.of(context).size.width - 320,
           ),
           ElevatedButton(
               style: ButtonStyle(
