@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 
 class InformationPage extends StatefulWidget {
   final String title;
+  final bool solve;
   final List<Widget> children;
-  InformationPage({this.title, this.children});
+  InformationPage({this.title, this.children, this.solve = true});
   @override
   _InformationPageState createState() => _InformationPageState();
 }

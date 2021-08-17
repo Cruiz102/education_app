@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 class LessonPageSlider extends StatefulWidget {
   final List<Widget> pageList;
   final Key key;
+  final bool checkIfSolve; 
   LessonPageSlider({this.pageList, this.key});
 
   @override
@@ -15,16 +16,20 @@ class _LessonPageSliderState extends State<LessonPageSlider> {
   final controllerPage = PageController();
 
   void _changePagefunction(data) {
+    if(checkIfSolve){
     setState(() {
       _currentPage = data;
     });
+    }
   }
 
   void _changePagewithBar(data) {
+    if(checkIfSolve){
     setState(() {
       _currentPage = data;
       controllerPage.jumpToPage(data);
     });
+  }
   }
 
   @override
