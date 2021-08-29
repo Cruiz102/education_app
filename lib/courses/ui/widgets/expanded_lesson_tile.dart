@@ -1,4 +1,4 @@
-import 'package:education_app/widgets/lesson_tile.dart';
+import 'package:education_app/courses/ui/widgets/lesson_tile.dart';
 import 'package:flutter/material.dart';
 
 class ExpandedLessonTile extends StatefulWidget {

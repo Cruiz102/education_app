@@ -44,45 +44,26 @@ class _SomethingState extends State<Something> {
   }
 }
 
+// ignore: must_be_immutable
 class Something2 extends StatefulWidget {
+  bool isSolved = false;
+
   @override
   _Something2State createState() => _Something2State();
 }
 
-enum SingingCharacter { lafayette, jefferson }
-
 class _Something2State extends State<Something2> {
-  String data = "";
-  fetchFileData() async {
-    String responseText;
-    responseText =
-        await rootBundle.loadString("lib/pages/ui/screens/albert.txt");
-    setState(() {
-      data = responseText;
-    });
-  }
-
-  @override
-  void initState() {
-    fetchFileData();
-    super.initState();
-  }
-
-  int selectedpsotion = 1;
   @override
   Widget build(BuildContext context) {
-    return InformationPage(
-      title: "Science in the space",
-      children: [
-        MarkdownBody(
-          data: data,
-          selectable: true,
-        ),
-        MultipleSelect(
-          correctAnswer: 1,
-          description: [Text("kb"), Text("sfg"), Text("Teamo")],
-        )
-      ],
+    MultipleSelect m1 = MultipleSelect(
+      correctAnswer: 1,
+      description: [Text("kb"), Text("sfg"), Text("Teamo")],
     );
+
+    var informationPage =
+        InformationPage(title: "Science in the space", children: [m1]);
+    widget.isSolved = informationPage.checkIfSolved();
+
+    return informationPage;
   }
 }

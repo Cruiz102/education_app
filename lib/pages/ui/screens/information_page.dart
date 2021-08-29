@@ -1,11 +1,26 @@
-import 'package:education_app/pages/model/distribute_content_in_page.dart';
+import 'package:education_app/widgets/interactives/multiple_select.dart';
 import 'package:flutter/material.dart';
 
 class InformationPage extends StatefulWidget {
   final String title;
-  final bool solve;
-  final List<Widget> children;
-  InformationPage({this.title, this.children, this.solve = true});
+
+  final List children;
+  InformationPage({this.title, this.children});
+
+  bool checkIfSolved() {
+    bool solve;
+    for (var i = 0; i < children.length; i++) {
+      if (children[i].runtimeType == MultipleSelect) {
+        if (children[i].boolState)
+          solve = true;
+        else {
+          solve = false;
+        }
+      }
+    }
+    return solve;
+  }
+
   @override
   _InformationPageState createState() => _InformationPageState();
 }
@@ -13,14 +28,16 @@ class InformationPage extends StatefulWidget {
 class _InformationPageState extends State<InformationPage> {
   @override
   Widget build(BuildContext context) {
-    final titleText = Text(
-      widget.title,
-      style: TextStyle(fontSize: 30.0),
-    );
+    //titleText is the widget of the title of the information Page
+    final titleText = Container(
+        margin: EdgeInsets.only(bottom: 40, top: 40),
+        child: Text(
+          widget.title,
+          style: TextStyle(fontSize: 30.0),
+        ));
+    widget.children.insert(0, titleText);
     return Scaffold(
-      body: ListView(
-        children: distributeContentInPage(widget.children, titleText),
-      ),
+      body: ListView(children: widget.children),
     );
   }
 }

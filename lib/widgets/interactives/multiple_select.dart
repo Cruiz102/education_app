@@ -1,22 +1,27 @@
 import 'package:education_app/widgets/interactives/explanation_page.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class MultipleSelect extends StatefulWidget {
   final int correctAnswer;
   final List<Widget> description;
   MultipleSelect({this.correctAnswer, this.description});
+  get boolState {
+    return answerCorrectandbuttonPressed;
+  }
+
+  int valueofthemultipleSelectwidget = 0;
+  bool answerCorrectandbuttonPressed = false;
 
   @override
   _MultipleSelectState createState() => _MultipleSelectState();
 }
 
 class _MultipleSelectState extends State<MultipleSelect> {
-  int valueofthemultipleSelectwidget = 0;
-
 // This method changed the value of the answer of the radiobuttons
   void changeAnswer(value) {
     setState(() {
-      valueofthemultipleSelectwidget = value;
+      widget.valueofthemultipleSelectwidget = value;
     });
   }
 
@@ -37,7 +42,7 @@ class _MultipleSelectState extends State<MultipleSelect> {
             ),
             child: RadioListTile(
                 value: i,
-                groupValue: valueofthemultipleSelectwidget,
+                groupValue: widget.valueofthemultipleSelectwidget,
                 onChanged: (value) => {changeAnswer(value)},
                 title: widget.description[i]));
         list.add(radio);
@@ -46,13 +51,18 @@ class _MultipleSelectState extends State<MultipleSelect> {
 
       list.add(ElevatedButton(
           onPressed: () => {
+                if (widget.correctAnswer ==
+                    widget.valueofthemultipleSelectwidget)
+                  {widget.answerCorrectandbuttonPressed = true}
+                else
+                  {widget.answerCorrectandbuttonPressed = false},
                 showModalBottomSheet(
                     isScrollControlled: true,
                     backgroundColor: Colors.transparent,
                     context: context,
                     builder: (context) => ExplanationPage(
                           correctAnswer: widget.correctAnswer,
-                          givenValue: valueofthemultipleSelectwidget,
+                          givenValue: widget.valueofthemultipleSelectwidget,
                           explanationInfo: Text("hola"),
                         ))
               },

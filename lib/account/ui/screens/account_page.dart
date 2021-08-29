@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 
 class AccountPage extends StatelessWidget {
+  String get string {
+    return "Hola  me llamo Cesar";
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(

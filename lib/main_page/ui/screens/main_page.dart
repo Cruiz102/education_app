@@ -6,13 +6,14 @@ import 'package:flutter/services.dart';
 
 // ignore: must_be_immutable
 class MainPage extends StatefulWidget {
-  final List appbarTitles = ["Home", "Courses", "Profile"];
+  final List appbarTitles = ["Home", "Courses", "Account"];
+  final account = AccountPage().string;
 
   int selectedIndex = 0;
   final navigationItem = BottomNavigationBarItem(
       icon: Icon(Icons.home), label: "home", backgroundColor: Colors.green);
   final accountItem = BottomNavigationBarItem(
-      icon: Icon(Icons.account_circle), label: "account");
+      icon: Icon(Icons.account_circle), label: "Account");
   final coursesItem = BottomNavigationBarItem(
       icon: Icon(Icons.collections_bookmark_rounded), label: "Courses");
 
@@ -48,7 +49,7 @@ class _MainPageState extends State<MainPage> {
         currentIndex: widget.selectedIndex,
         onTap: (int index) {
           setState(() {
-            print(widget.selectedIndex);
+            print(widget.account);
             widget.selectedIndex = index;
           });
         },

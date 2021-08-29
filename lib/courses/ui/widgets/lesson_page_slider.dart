@@ -2,9 +2,9 @@ import 'package:education_app/widgets/progress_bar_widgets/progress_bars.dart';
 import 'package:flutter/material.dart';
 
 class LessonPageSlider extends StatefulWidget {
-  final List<Widget> pageList;
+  final List pageList;
   final Key key;
-  final bool checkIfSolve; 
+
   LessonPageSlider({this.pageList, this.key});
 
   @override
@@ -13,23 +13,32 @@ class LessonPageSlider extends StatefulWidget {
 
 class _LessonPageSliderState extends State<LessonPageSlider> {
   int _currentPage = 0;
+  bool checkIfSolved = false;
   final controllerPage = PageController();
 
+  bool _correctAswer(page) {
+    if (widget.pageList[page].isSolved) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   void _changePagefunction(data) {
-    if(checkIfSolve){
-    setState(() {
-      _currentPage = data;
-    });
+    if (_correctAswer(data)) {
+      setState(() {
+        _currentPage = data;
+      });
     }
   }
 
   void _changePagewithBar(data) {
-    if(checkIfSolve){
-    setState(() {
-      _currentPage = data;
-      controllerPage.jumpToPage(data);
-    });
-  }
+    if (_correctAswer(data)) {
+      setState(() {
+        _currentPage = data;
+        controllerPage.jumpToPage(data);
+      });
+    }
   }
 
   @override
