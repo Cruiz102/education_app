@@ -1,8 +1,9 @@
+import 'package:education_app/pages/ui/screens/example.dart';
 import 'package:education_app/widgets/progress_bar_widgets/progress_bars.dart';
 import 'package:flutter/material.dart';
 
 class LessonPageSlider extends StatefulWidget {
-  final List pageList;
+  final List<Widget> pageList;
   final Key key;
 
   LessonPageSlider({this.pageList, this.key});
@@ -12,20 +13,31 @@ class LessonPageSlider extends StatefulWidget {
 }
 
 class _LessonPageSliderState extends State<LessonPageSlider> {
+  List lastValue = [];
   int _currentPage = 0;
   bool checkIfSolved = false;
   final controllerPage = PageController();
 
-  bool _correctAswer(page) {
-    if (widget.pageList[page].isSolved) {
-      return true;
+  dynamic _correctAnswer(page) {
+    if (widget.pageList[page].runtimeType == Something2) {
+      Something2 aa = widget.pageList[page];
+      bool neww = page < lastValue;
+      if (aa.isSolvedCall() | neww) {
+        // If the question is answered correctly we can swipe to the next page
+        lastValue = page + 1;
+        return true;
+      } else {
+        // If not disable the slider physics
+        return false;
+      }
     } else {
-      return false;
+      // If the Widget does not have a Question Widget then we return true to do not stop the slider
+      return true;
     }
   }
 
   void _changePagefunction(data) {
-    if (_correctAswer(data)) {
+    if (_correctAnswer(data)) {
       setState(() {
         _currentPage = data;
       });
@@ -33,7 +45,7 @@ class _LessonPageSliderState extends State<LessonPageSlider> {
   }
 
   void _changePagewithBar(data) {
-    if (_correctAswer(data)) {
+    if (_correctAnswer(data)) {
       setState(() {
         _currentPage = data;
         controllerPage.jumpToPage(data);
@@ -56,7 +68,9 @@ class _LessonPageSliderState extends State<LessonPageSlider> {
         actions: [button],
       ),
       body: PageView(
+          allowImplicitScrolling: true,
           physics: PageScrollPhysics(),
+          scrollBehavior: ScrollBehavior(),
           controller: controllerPage,
           children: widget.pageList,
           onPageChanged: (int page) {

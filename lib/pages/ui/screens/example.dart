@@ -46,7 +46,7 @@ class _SomethingState extends State<Something> {
 
 // ignore: must_be_immutable
 class Something2 extends StatefulWidget {
-  bool isSolved = false;
+  bool Function() isSolvedCall;
 
   @override
   _Something2State createState() => _Something2State();
@@ -62,8 +62,7 @@ class _Something2State extends State<Something2> {
 
     var informationPage =
         InformationPage(title: "Science in the space", children: [m1]);
-    widget.isSolved = informationPage.checkIfSolved();
-
+    widget.isSolvedCall = informationPage.checkIfSolved;
     return informationPage;
   }
 }

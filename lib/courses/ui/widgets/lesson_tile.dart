@@ -35,14 +35,14 @@ class _LessonTileState extends State<LessonTile> {
                       builder: (context) => (LessonPageSlider(
                             pageList: [
                               Something(),
-                              Something(),
-                              Something(),
                               Something2(),
-                              Something(),
                               Something2(),
                               Something(),
                               Something(),
                               Something2(),
+                              Something(),
+                              Something2(),
+                              Something(),
                             ],
                           )),
                       maintainState: true,

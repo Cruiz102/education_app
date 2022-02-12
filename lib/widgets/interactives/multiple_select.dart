@@ -5,13 +5,18 @@ import 'package:flutter/material.dart';
 class MultipleSelect extends StatefulWidget {
   final int correctAnswer;
   final List<Widget> description;
-  MultipleSelect({this.correctAnswer, this.description});
+
+  MultipleSelect({
+    this.correctAnswer,
+    this.description,
+  });
+
+  int valueofthemultipleSelectwidget;
+  bool answerCorrectandbuttonPressed = false;
+
   get boolState {
     return answerCorrectandbuttonPressed;
   }
-
-  int valueofthemultipleSelectwidget = 0;
-  bool answerCorrectandbuttonPressed = false;
 
   @override
   _MultipleSelectState createState() => _MultipleSelectState();
@@ -53,7 +58,11 @@ class _MultipleSelectState extends State<MultipleSelect> {
           onPressed: () => {
                 if (widget.correctAnswer ==
                     widget.valueofthemultipleSelectwidget)
-                  {widget.answerCorrectandbuttonPressed = true}
+                  {
+                    setState(() {
+                      widget.answerCorrectandbuttonPressed = true;
+                    })
+                  }
                 else
                   {widget.answerCorrectandbuttonPressed = false},
                 showModalBottomSheet(

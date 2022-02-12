@@ -4,17 +4,18 @@ import 'package:flutter/material.dart';
 class InformationPage extends StatefulWidget {
   final String title;
 
-  final List children;
+  final List<Widget> children;
   InformationPage({this.title, this.children});
 
   bool checkIfSolved() {
     bool solve;
     for (var i = 0; i < children.length; i++) {
       if (children[i].runtimeType == MultipleSelect) {
-        if (children[i].boolState)
+        MultipleSelect a = children[i];
+        if (a.boolState)
           solve = true;
         else {
-          solve = false;
+          return false;
         }
       }
     }
